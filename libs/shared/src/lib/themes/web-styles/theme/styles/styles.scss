@@ -1,0 +1,166 @@
+@import 'theme-variables'; // first we import the variables, then bulma to customize it
+@import './primeng-theme.scss';
+
+@import './ngx-easy-table.theme';
+@import './custom-data-table.theme';
+
+// @include custom-data-table();
+@include ngx-easy-table();
+
+$material-symbols: 'query_stats', 'account_circle', 'alternate_email',
+  'admin_panel_settings';
+
+$custom-icons: 'management', 'users';
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: $background-color;
+  color: $primaryTextColor;
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.content-container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+.content-container .page-wrap {
+  flex-grow: 1;
+}
+
+.content-container {
+  flex-basis: 100px;
+}
+
+.flex-1 {
+  flex: 1 1 0% !important;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.p-hidden-accessible {
+  display: none !important;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.sub-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+file-pond,
+.filepond--wrapper {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.filepond--credits {
+  display: none;
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: percentage(calc($i / 100)) !important;
+  }
+}
+
+@for $i from 1 through 100 {
+  .h-#{$i} {
+    height: percentage(calc($i / 100)) !important;
+  }
+}
+
+@each $icon in $material-symbols {
+  .material-symbols-#{$icon}:after {
+    content: $icon;
+  }
+
+  .material-symbols-outlined-#{$icon}:after {
+    content: $icon;
+  }
+}
+
+@each $icon in $custom-icons {
+  .custom-icon-#{$icon} {
+    mask-size: contain;
+    width: 20px;
+    height: 20px;
+    mask-repeat: no-repeat;
+    background-color: $secondaryTextColor;
+    -webkit-mask-image: url('../../../../assets/images/icons/' + $icon + '.svg');
+    mask-image: url('../../../../assets/images/icons/' + $icon + '.svg');
+  }
+}
+
+.dialog-backdrop {
+  // background: linear-gradient(175.02deg, rgba(255, 255, 255, 0.51) 2.89%, rgba(255, 255, 255, 0.43) 106.49%);
+  backdrop-filter: blur(48px);
+}
+
+// FORM LABELS
+label {
+  &.required {
+    &::before {
+      font-weight: 700 !important;
+      content: '*';
+      position: relative;
+      top: -0.25rem;
+    }
+  }
+}
+
+.label-disabled {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.8px;
+  font-weight: 400;
+  // color: var(--text-disabled-color);
+  color: gray;
+  text-transform: uppercase;
+}

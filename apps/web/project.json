@@ -15,9 +15,20 @@
         "main": "apps/web/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/web/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
         "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
-        "styles": ["apps/web/src/styles.scss"],
+        "styles": [
+          "libs/shared/src/lib/themes/web-styles/theming/layouts/pragma/layout.scss",
+          "libs/shared/src/lib/themes/web-styles/theming/styles/primeng-theme.scss",
+          "libs/shared/src/lib/themes/web-styles/theme/styles/primeng-theme.scss",
+
+          "node_modules/primeicons/primeicons.css",
+          "node_modules/primeng/resources/primeng.min.css",
+          "node_modules/primeflex/primeflex.css"
+        ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/shared/src/lib/themes/web-styles"]
+        },
+        "inlineStyleLanguage": "scss",
         "scripts": []
       },
       "configurations": {

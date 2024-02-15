@@ -1,0 +1,9 @@
+{
+  "name": "web-components-under-constraction",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/components/under-constraction/src",
+  "prefix": "church-of-man",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

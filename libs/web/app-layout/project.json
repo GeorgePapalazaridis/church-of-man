@@ -1,0 +1,9 @@
+{
+  "name": "web-app-layout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/app-layout/src",
+  "prefix": "church-of-man",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

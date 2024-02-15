@@ -1,0 +1,49 @@
+@mixin custom-data-table() {
+    $base-spacing-unit: 16px;
+    $half-spacing-unit: calc($base-spacing-unit / 2);
+
+    $color-form-highlight: var(--table-striped-color);
+    $background-color: var(--layout-background-color);
+
+    .custom-data-table-wrapper {
+        background-color: $background-color;
+        .custom-data-table {
+            width: 100%;
+            border: 1px solid $color-form-highlight;
+
+            .thead {
+                display: flex;
+                width: 100%;
+                border-bottom: 2px solid $color-form-highlight;
+                background-color: $background-color;
+                .trow {
+                    display: flex;
+                    width: 100%;
+                    padding: calc($half-spacing-unit * 1.5) 0;
+                    .tcell {
+                        font-weight: 600;
+                        flex: 1 1 20%;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .tbody {
+                .trow {
+                    display: flex;
+                    width: 100%;
+                    padding: $half-spacing-unit 0;
+
+                    &:nth-of-type(odd) {
+                        background: $color-form-highlight;
+                    }
+
+                    .tcell {
+                        flex: 1 1 20%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,335 @@
+/* You can add global styles to this file, and also import other style files */
+
+$gutter: 1rem; //for primeflex grid system
+@import './normalize.scss';
+@import 'layouts/pragma/layout.scss';
+
+// APP LOADING PAGE
+.app-loading {
+    //background-color: $background-color;
+    width: 100vw;
+    height: 100vh;
+
+    .loading-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: flex-end;
+
+        .loading-dots {
+            width: 50px;
+            height: 10px;
+            margin-bottom: 8px;
+            aspect-ratio: 4;
+            background: radial-gradient(circle closest-side, #c80a4d 90%, #0000) 0 / calc(100% / 3) 100% space;
+            clip-path: inset(0 100% 0 0);
+            animation: l1 1s steps(4) infinite;
+        }
+        @keyframes l1 {
+            to {
+                clip-path: inset(0 -34% 0 0);
+            }
+        }
+
+        .loading-blob-dots {
+            margin: 0 0 4px 4px;
+            height: 20px;
+            aspect-ratio: 2;
+            box-sizing: border-box;
+            background:
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) center/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) right/10px 10px,
+                transparent;
+            background-repeat: no-repeat;
+            animation: l14 1s infinite;
+        }
+        @keyframes l14 {
+            100% {
+                background-position: right, left, center, right;
+            }
+        }
+    }
+}
+
+// //@import './themes/pragma/theme.scss';
+// @import './themes/material/material-light/standard/indigo/theme.scss';
+// @import './styles/theme-variables.scss';
+
+// //@import './styles/styles.scss';
+
+// @import './normalize.scss';
+
+//$custom-icons: 'management', 'users';
+
+// @each $icon in $custom-icons {
+//     .custom-icon-#{$icon} {
+//         mask-size: contain;
+//         width: 20px;
+//         height: 20px;
+//         mask-repeat: no-repeat;
+//         background-color: #595959;
+//         -webkit-mask-image: url('../../../assets/images/icons/' + $icon + '.svg');
+//         mask-image: url('../../../assets/images/icons/' + $icon + '.svg');
+//     }
+// }
+
+$material-symbols: 'query_stats', 'account_circle', 'alternate_email', 'admin_panel_settings', 'left_panel_close',
+    'right_panel_close', 'close', 'menu_open', 'logout';
+
+/**
+  * USAGE <i class="material-symbols-outlined material-symbols-{icon}"></i>
+**/
+@each $icon in $material-symbols {
+    .material-symbols-#{$icon}:after {
+        content: $icon;
+    }
+
+    .material-symbols-outlined-#{$icon}:after {
+        content: $icon;
+    }
+}
+
+// html {
+//     overflow: hidden;
+// }
+
+// html,
+// body {
+//     max-width: 100%;
+// }
+
+// // APP LOADING PAGE
+// .app-loading {
+//     background-color: $background-color;
+//     width: 100vw;
+//     height: 100vh;
+
+//     .loading-container {
+//         position: fixed;
+//         top: 50%;
+//         left: 50%;
+//         -webkit-transform: translate(-50%, -50%);
+//         transform: translate(-50%, -50%);
+//         display: flex;
+//         align-items: flex-end;
+
+//         .loading-dots {
+//             width: 50px;
+//             height: 10px;
+//             margin-bottom: 8px;
+//             aspect-ratio: 4;
+//             background: radial-gradient(circle closest-side, #c80a4d 90%, #0000) 0 / calc(100% / 3) 100% space;
+//             clip-path: inset(0 100% 0 0);
+//             animation: l1 1s steps(4) infinite;
+//         }
+//         @keyframes l1 {
+//             to {
+//                 clip-path: inset(0 -34% 0 0);
+//             }
+//         }
+
+//         .loading-blob-dots {
+//             margin: 0 0 4px 4px;
+//             height: 20px;
+//             aspect-ratio: 2;
+//             box-sizing: border-box;
+//             background:
+//                 radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+//                 radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+//                 radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) center/10px 10px,
+//                 radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) right/10px 10px,
+//                 transparent;
+//             background-repeat: no-repeat;
+//             animation: l14 1s infinite;
+//         }
+//         @keyframes l14 {
+//             100% {
+//                 background-position: right, left, center, right;
+//             }
+//         }
+//     }
+// }
+
+// .with-scroll .scrollable-container {
+//     overflow: auto;
+//     height: 100vh;
+//     display: block;
+//     //border: 1px solid tomato;
+
+//     &::-webkit-scrollbar {
+//         width: 5px;
+//     }
+
+//     /* Track */
+//     &::-webkit-scrollbar-track {
+//         background: transparent;
+//     }
+
+//     /* Handle */
+//     &::-webkit-scrollbar-thumb {
+//         background: $primaryColor;
+//         border-radius: 4px;
+//     }
+// }
+
+// .pg-layout {
+//     .layout {
+//         display: flex;
+//         flex-direction: column;
+//         min-width: 300px;
+//         min-height: 100vh;
+//         // background-color: var(--layout-background-color);
+//         // color: var(--layout-text-color);
+//         // font-family: var(--layout-text-font-family);
+//         // font-size: var(--layout-text-font-size);
+//         // font-weight: var(--layout-text-font-weight);
+//         // line-height: var(--layout-text-line-height);
+
+//         .layout-container {
+//             display: flex;
+//             flex: 1;
+//             -ms-flex: 1 1 auto;
+//             flex-direction: row;
+
+//             .content {
+//                 display: flex;
+//                 flex: 1;
+//                 -ms-flex: 1 1 auto;
+//                 flex-direction: column;
+//                 min-width: 0;
+//                 border: 1px solid purple;
+//             }
+//         }
+//     }
+// }
+
+// .page-full-height-block {
+//     display: block;
+//     height: 100%;
+// }
+
+// .page-full-height {
+//     display: flex;
+//     height: 100%;
+// }
+
+// .pg-layout-header {
+//     display: block;
+//     background-color: grey;
+//     height: auto;
+//     //display: flex;
+//     align-content: center;
+
+//     nav {
+//         align-items: center;
+//         justify-content: flex-start;
+//         display: flex;
+
+//         padding: 0;
+
+//         ngx-header {
+//             width: 100%;
+//         }
+
+//         // color: var(--header-text-color);
+//         // box-shadow: var(--header-shadow);
+//         // height: var(--header-height);
+//         // padding: var(--header-padding);
+//     }
+// }
+
+// .my-card {
+//     padding: 2%;
+//     text-align: center;
+//     background-color: var(--web-backgound-color);
+//     .row {
+//         padding-top: 2%;
+//     }
+//     .search {
+//         font-size: 100px;
+//     }
+//     .icons {
+//         display: flex;
+//         justify-content: space-evenly;
+//     }
+//     h1,
+//     h6 {
+//         color: var(--web-primary-text-color);
+//     }
+//     h1 {
+//         font-size: 20px;
+//         font-weight: bold;
+//     }
+//     .overlay {
+//         filter: brightness(0.5);
+//     }
+//     .search-container {
+//         display: flex;
+//         justify-content: flex-end;
+//         align-items: center;
+//     }
+
+//     .search-button {
+//         display: flex;
+//         justify-content: end;
+//         align-items: center;
+//         gap: 10px;
+//         color: var(--web-primary-text-color);
+//         input {
+//             border-radius: 5px;
+//             height: 40px;
+//         }
+//     }
+//     tr,
+//     th {
+//         color: var(--web-primary-text-color);
+//         background-color: var(--web-background-color);
+//     }
+
+//     tr:nth-child(odd) {
+//         background-color: var(--web-table-color-odd);
+//     }
+
+//     tr:nth-child(even) {
+//         background-color: var(--web-table-color-even);
+//     }
+// }
+// .spinner {
+//     text-align: center;
+// }
+
+// .modal-window {
+//     .container {
+//         max-height: 100vh;
+//         overflow-y: scroll;
+//         overflow-x: hidden;
+//         max-width: 100vw;
+//     }
+
+//     .form-actions {
+//         margin-top: 5%;
+//     }
+
+//     .flex {
+//         display: flex;
+//         justify-content: space-between;
+//         background-color: $button-ghost-primary-text-color;
+//         color: white;
+//         align-items: center;
+//         h1 {
+//             padding-left: 5%;
+//         }
+//     }
+
+//     p {
+//         color: var(--web-primary-text-color);
+//     }
+//     label {
+//         color: var(--web-primary-text-color);
+//     }
+// }

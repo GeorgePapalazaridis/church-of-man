@@ -1,0 +1,74 @@
+.quote-message-container {
+  @import url('https://fonts.googleapis.com/css?family=Special+Elite');
+  padding-top: 1rem;
+
+  font-family: 'Special Elite', cursive;
+  background: #fffdf5;
+  color: #3f3f5a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+
+  blockquote {
+    font-weight: 100;
+    font-size: 1.3rem;
+    max-width: 600px;
+    line-height: 1.4;
+    position: relative;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  blockquote:before,
+  blockquote:after {
+    position: absolute;
+    color: #f1efe6;
+    font-size: 8rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  blockquote:before {
+    content: '“';
+    left: -5rem;
+    top: -2rem;
+  }
+
+  blockquote:after {
+    content: '”';
+    right: -5rem;
+    bottom: 1rem;
+  }
+
+  cite {
+    line-height: 3;
+    text-align: left;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    blockquote {
+      font-size: 1.1rem;
+      max-width: 450px;
+      line-height: 1.2;
+    }
+
+    blockquote:before,
+    blockquote:after {
+      font-size: 6rem;
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  @media only screen and (max-width: 764px) {
+    .reverse-column {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

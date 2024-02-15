@@ -1,0 +1,209 @@
+@import './primeng-theme.scss';
+@import 'theme-variables'; // first we import the variables, then bulma to customize it
+@import '../styles/ngx-easy-table.theme';
+@import '../styles/custom-data-table.theme';
+
+@include custom-data-table();
+@include ngx-easy-table();
+
+$material-symbols: 'query_stats', 'account_circle', 'alternate_email', 'admin_panel_settings';
+
+$custom-icons: 'management', 'users';
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: $background-color;
+    color: $primaryTextColor;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-loading {
+    background-color: $background-color;
+    width: 100vw;
+    height: 100vh;
+
+    .loading-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: flex-end;
+
+        .loading-dots {
+            width: 50px;
+            height: 10px;
+            margin-bottom: 8px;
+            aspect-ratio: 4;
+            background: radial-gradient(circle closest-side, #c80a4d 90%, #0000) 0 / calc(100% / 3) 100% space;
+            clip-path: inset(0 100% 0 0);
+            animation: l1 1s steps(4) infinite;
+        }
+        @keyframes l1 {
+            to {
+                clip-path: inset(0 -34% 0 0);
+            }
+        }
+
+        .loading-blob-dots {
+            margin: 0 0 4px 4px;
+            height: 20px;
+            aspect-ratio: 2;
+            box-sizing: border-box;
+            background:
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) left/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) center/10px 10px,
+                radial-gradient(farthest-side, #c80a4d 80%, rgba(0, 0, 0, 0)) right/10px 10px,
+                transparent;
+            background-repeat: no-repeat;
+            animation: l14 1s infinite;
+        }
+        @keyframes l14 {
+            100% {
+                background-position: right, left, center, right;
+            }
+        }
+    }
+}
+
+.content-container {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+}
+
+.content-container .page-wrap {
+    flex-grow: 1;
+}
+
+.content-container {
+    flex-basis: 100px;
+}
+
+.flex-1 {
+    flex: 1 1 0% !important;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.mt-5 {
+    margin-top: 1.25rem;
+}
+
+.mt-6 {
+    margin-top: 1.5rem;
+}
+
+.mt-7 {
+    margin-top: 1.75rem;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+.p-hidden-accessible {
+    display: none !important;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.sub-title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+file-pond,
+.filepond--wrapper {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.filepond--credits {
+    display: none;
+}
+
+@for $i from 1 through 100 {
+    .w-#{$i} {
+        width: percentage(calc($i / 100)) !important;
+    }
+}
+
+@for $i from 1 through 100 {
+    .h-#{$i} {
+        height: percentage(calc($i / 100)) !important;
+    }
+}
+
+@each $icon in $material-symbols {
+    .material-symbols-#{$icon}:after {
+        content: $icon;
+    }
+
+    .material-symbols-outlined-#{$icon}:after {
+        content: $icon;
+    }
+}
+
+// @each $icon in $custom-icons {
+//     .custom-icon-#{$icon} {
+//         mask-size: contain;
+//         width: 20px;
+//         height: 20px;
+//         mask-repeat: no-repeat;
+//         background-color: $secondaryTextColor;
+//         -webkit-mask-image: url('../../../../assets/images/icons/' + $icon + '.svg');
+//         mask-image: url('../../../../assets/images/icons/' + $icon + '.svg');
+//     }
+// }
+
+.border-tomato {
+    border: 1px solid tomato !important;
+}
+
+// NGX TABLES
+.ngx-table__header-search {
+    background: var(--color-background-500);
+    border: none;
+    border-radius: 0;
+}
+
+.ngx-table__header {
+    vertical-align: baseline;
+}
+
+.ngx-table__table-row--selected,
+.ngx-table__table-col--selected,
+.ngx-table__table-cell--selected {
+    background: unset !important;
+}
