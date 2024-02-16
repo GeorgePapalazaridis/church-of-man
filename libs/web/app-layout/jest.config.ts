@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'web-app-layout',
+  displayName: 'web-layout',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../coverage/libs/web/app-layout',

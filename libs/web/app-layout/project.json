@@ -1,5 +1,5 @@
 {
-  "name": "web-app-layout",
+  "name": "web-layout",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/web/app-layout/src",
   "prefix": "church-of-man",
