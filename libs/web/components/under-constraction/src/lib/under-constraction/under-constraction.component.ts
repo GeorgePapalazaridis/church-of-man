@@ -10,6 +10,7 @@ import { RippleModule } from 'primeng/ripple';
 import { QuoteComponent } from './quote/quote.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { BandMemberComponent } from '../band-member/band-member.component';
 
 @Component({
   selector: 'church-of-man-under-constraction',
@@ -22,6 +23,7 @@ import { HeaderComponent } from './header/header.component';
     QuoteComponent,
     FooterComponent,
     HeaderComponent,
+    BandMemberComponent
   ],
   templateUrl: './under-constraction.component.html',
   styleUrl: './under-constraction.component.scss',
