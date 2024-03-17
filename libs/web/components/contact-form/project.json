@@ -1,0 +1,9 @@
+{
+  "name": "web-components-contact-form",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/web/components/contact-form/src",
+  "prefix": "church-of-man",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

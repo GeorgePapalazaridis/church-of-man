@@ -4,7 +4,6 @@ import {
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { Routes } from '@angular/router';
-import { AppLayoutComponent } from '@church-of-man/web/app-layout';
 import {
   provideHttpClient,
   withInterceptorsFromDi,
@@ -18,31 +17,18 @@ import { MessageService } from 'primeng/api';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'pages',
     loadChildren: () =>
-      import('@church-of-man/web/components/under-constraction').then(
-        (m) => m.underConstractionRoutes
-      ),
+      import('@church-of-man/web/components').then((m) => m.PagesRoutes),
   },
   {
     path: '',
-    component: AppLayoutComponent,
-    children: [
-      // {
-      //   path: '',
-      //   loadChildren: () =>
-      //     import('@church-of-man/web/home').then((m) => m.homeRoutes),
-      // },
-    ],
-  },
-  {
-    path: '',
-    redirectTo: 'home',
+    redirectTo: 'pages/home',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'pages',
   },
 ];
 

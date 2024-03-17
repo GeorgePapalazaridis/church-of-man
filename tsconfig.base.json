@@ -17,10 +17,14 @@
     "paths": {
       "@church-of-man/shared": ["libs/shared/src/index.ts"],
       "@church-of-man/web/app-layout": ["libs/web/app-layout/src/index.ts"],
+      "@church-of-man/web/components/contact-form": [
+        "libs/web/components/contact-form/src/index.ts"
+      ],
       "@church-of-man/web/components/under-constraction": [
         "libs/web/components/under-constraction/src/index.ts"
       ],
-      "@church-of-man/web/home": ["libs/web/home/src/index.ts"]
+      "@church-of-man/web/home": ["libs/web/home/src/index.ts"],
+      "@church-of-man/web/components": ["libs/web//components/pages.routes.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

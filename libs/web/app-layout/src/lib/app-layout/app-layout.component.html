@@ -1,15 +1,13 @@
-<div class="layout-container">
-    <div class="layout-wrapper" [ngClass]="containerClass">
-        <church-of-man-topbar></church-of-man-topbar>
-        <div class="layout-sidebar">
-            <church-of-man-sidebar></church-of-man-sidebar>
-        </div>
-        <div class="layout-main-container">
-            <div class="layout-main">
-                <router-outlet></router-outlet>
-            </div>
-            <church-of-man-footer></church-of-man-footer>
-        </div>
-        <div class="layout-mask"></div>
+<div class="layout-wrapper" [ngClass]="containerClass">
+    <church-of-man-topbar></church-of-man-topbar>
+    <div class="layout-sidebar">
+        <church-of-man-sidebar></church-of-man-sidebar>
+        <church-of-man-footer></church-of-man-footer>
     </div>
+    <div class="layout-main-container">
+        <div class="layout-main">
+            <ng-content select="router-outlet"></ng-content>
+        </div>
+    </div>
+    <div class="layout-mask"></div>
 </div>

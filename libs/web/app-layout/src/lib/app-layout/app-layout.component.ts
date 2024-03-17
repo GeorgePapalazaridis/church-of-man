@@ -8,7 +8,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -25,6 +25,7 @@ import { Subscription, filter } from 'rxjs';
     SidebarComponent,
     FooterComponent,
     RouterModule,
+    NgClass,
   ],
   templateUrl: './app-layout.component.html',
   styleUrl: './app-layout.component.scss',
