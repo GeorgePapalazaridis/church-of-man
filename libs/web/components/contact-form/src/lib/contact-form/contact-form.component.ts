@@ -80,4 +80,8 @@ export class ContactFormComponent implements OnInit {
       title: ['', Validators.required],
     });
   }
+
+  navigateToHome() {
+    this._router.navigate(['/pages/home']);
+  }
 }

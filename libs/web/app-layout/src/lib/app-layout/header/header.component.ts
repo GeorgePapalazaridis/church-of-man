@@ -10,15 +10,14 @@ import { MenuItem } from 'primeng/api';
 import { LayoutService } from '@church-of-man/shared';
 
 @Component({
-  selector: 'church-of-man-topbar',
+  selector: 'church-of-man-header',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './top-bar.component.html',
-  styleUrl: '../app-layout.component.scss',
+  templateUrl: './header.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopBarComponent {
+export class HeaderComponent {
   items!: MenuItem[];
 
   @ViewChild('menubutton') menuButton!: ElementRef;

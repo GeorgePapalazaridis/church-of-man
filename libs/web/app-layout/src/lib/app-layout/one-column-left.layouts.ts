@@ -11,7 +11,7 @@ import {
 import { CommonModule, NgClass } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { HeaderComponent } from './header/header.component';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { LayoutService } from '@church-of-man/shared';
 import { Subscription, filter } from 'rxjs';
@@ -21,27 +21,36 @@ import { Subscription, filter } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    TopBarComponent,
+    HeaderComponent,
     SidebarComponent,
     FooterComponent,
     RouterModule,
     NgClass,
   ],
-  templateUrl: './app-layout.component.html',
-  styleUrl: './app-layout.component.scss',
+  template: `<div class="layout-wrapper" [ngClass]="containerClass">
+    <church-of-man-header></church-of-man-header>
+    <div class="layout-sidebar">
+      <church-of-man-sidebar></church-of-man-sidebar>
+      <church-of-man-footer></church-of-man-footer>
+    </div>
+    <div class="layout-main-container">
+      <div class="layout-main">
+        <ng-content select="router-outlet"></ng-content>
+      </div>
+    </div>
+    <div class="layout-mask"></div>
+  </div> `,
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppLayoutComponent implements OnDestroy {
+export class OneColumnLeftLayoutComponent implements OnDestroy {
   overlayMenuOpenSubscription: Subscription;
 
   menuOutsideClickListener: any;
 
-  profileMenuOutsideClickListener: any;
-
   @ViewChild(SidebarComponent) appSidebar!: SidebarComponent;
 
-  @ViewChild(TopBarComponent) appTopbar!: TopBarComponent;
+  @ViewChild(HeaderComponent) appTopbar!: HeaderComponent;
 
   constructor(
     public layoutService: LayoutService,
@@ -72,41 +81,15 @@ export class AppLayoutComponent implements OnDestroy {
           );
         }
 
-        if (!this.profileMenuOutsideClickListener) {
-          this.profileMenuOutsideClickListener = this.renderer.listen(
-            'document',
-            'click',
-            (event) => {
-              const isOutsideClicked = !(
-                this.appTopbar.menu.nativeElement.isSameNode(event.target) ||
-                this.appTopbar.menu.nativeElement.contains(event.target) ||
-                this.appTopbar.topbarMenuButton.nativeElement.isSameNode(
-                  event.target
-                ) ||
-                this.appTopbar.topbarMenuButton.nativeElement.contains(
-                  event.target
-                )
-              );
-
-              if (isOutsideClicked) {
-                this.hideProfileMenu();
-              }
-            }
-          );
-        }
-
         if (this.layoutService.state.staticMenuMobileActive) {
           this.blockBodyScroll();
         }
-        this._cd.detectChanges();
       });
 
     this.router.events
       .pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.hideMenu();
-        this.hideProfileMenu();
-        this._cd.detectChanges();
       });
   }
 
@@ -119,16 +102,6 @@ export class AppLayoutComponent implements OnDestroy {
       this.menuOutsideClickListener = null;
     }
     this.unblockBodyScroll();
-    this._cd.detectChanges();
-  }
-
-  hideProfileMenu() {
-    this.layoutService.state.profileSidebarVisible = false;
-    if (this.profileMenuOutsideClickListener) {
-      this.profileMenuOutsideClickListener();
-      this.profileMenuOutsideClickListener = null;
-    }
-    this._cd.detectChanges();
   }
 
   blockBodyScroll(): void {
